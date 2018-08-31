@@ -2,6 +2,7 @@ import App, { Container } from 'next/app'
 import React from 'react'
 import NextSeo from 'next-seo'
 import Head from 'next/head'
+import Styles from '../css/index.scss'
 
 /**
  * Most of this file is unchanged from next's default.

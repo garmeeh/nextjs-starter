@@ -1,5 +1,4 @@
 import Document, { Head, Main, NextScript } from 'next/document'
-import Styles from '../css/index.scss'
 
 export default class DefaultDocument extends Document {
   static async getInitialProps (ctx) {
