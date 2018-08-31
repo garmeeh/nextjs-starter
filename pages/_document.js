@@ -13,12 +13,7 @@ export default class DefaultDocument extends Document {
     **/
     return (
       <html lang={this.props.__NEXT_DATA__.props.lang || 'en'}>
-        <Head>
-          <meta charSet="UTF-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <style dangerouslySetInnerHTML={{ __html: Styles }} />
-          <script src="https://cdn.polyfill.io/v2/polyfill.min.js" />
-        </Head>
+        <Head />
         <body>
           {this.props.customValue}
           <Main />
