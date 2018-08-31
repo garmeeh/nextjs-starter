@@ -1,19 +1,29 @@
 import SyntaxHighlighter from 'react-syntax-highlighter/prism'
 import { atomDark as SyntaxHighlighterTheme } from 'react-syntax-highlighter/styles/prism'
+import NextSeo from 'next-seo'
 import Page from '../../components/page'
 import Layout from '../../components/layout'
 
 export default class extends Page {
   render() {
     return (
-      <Layout {...this.props} title="Layout and Styling">
+      <Layout {...this.props}>
+        <NextSeo config={{
+          title: 'Layout | Next.js Starter',
+          description: 'Next.js Starter uses both a custom Page class and a Layout component.',
+          openGraph: {
+            url: 'https://nextjs-starter.now.sh/examples/layout',
+            title: 'Layout | Next.js Starter',
+            description: 'Next.js Starter uses both a custom Page class and a Layout component.',
+          }
+        }}/>
         <h1 className="display-2">Layout</h1>
         <p className="lead">
          This project uses both a custom Page class and a Layout component.
         </p>
         <h2 className="mt-3">Page Class</h2>
         <p>
-          Most Pages in this project extend from the Page class 
+          Most Pages in this project extend from the Page class
           in <a href="https://github.com/iaincollins/nextjs-starter/blob/master/components/page.js">components/page.js</a>,
           which extends from <span className="font-weight-bold">React.Component</span>.
         </p>
@@ -46,13 +56,13 @@ export default class extends React.Component {
         <p>
           <span className="font-weight-bold">getInitialProps()</span> is called
           either client or server side, depending on how the page is being
-          rendered. When rendered server side, additional properties such 
+          rendered. When rendered server side, additional properties such
           as <span className="font-weight-bold">req</span> and <span className="font-weight-bold">res</span> are
           acessible from it.
         </p>
         <h2 className="mt-2">Layout Component</h2>
         <p>
-          Pages in this project inherit common HTML components, such as the 
+          Pages in this project inherit common HTML components, such as the
           top navigation bar, by using the Layout component from  <a href="https://github.com/iaincollins/nextjs-starter/blob/master/components/layout.js">components/layout.js</a> which
           wraps content with common HTML such as the navbar and footer.
         </p>
@@ -71,7 +81,7 @@ import Layout from '../components/layout'
 export default class extends Page {
   render() {
     return (
-      <Layout {...this.props} title="My page title">
+      <Layout {...this.props}>
         <h1>My page name</h1>
         <p>Some text</p>
       </Layout>

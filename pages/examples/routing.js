@@ -2,20 +2,30 @@ import Link from 'next/link'
 import SyntaxHighlighter from 'react-syntax-highlighter/prism'
 import { atomDark as SyntaxHighlighterTheme } from 'react-syntax-highlighter/styles/prism'
 import { Button } from 'reactstrap'
+import NextSeo from 'next-seo'
 import Page from '../../components/page'
 import Layout from '../../components/layout'
 
 export default class extends Page {
-  
+
   static async getInitialProps({req, query}) {
     let props = await super.getInitialProps({req})
     props.slug = query.id
     return props
   }
-  
+
   render() {
     return (
       <Layout {...this.props}>
+        <NextSeo config={{
+          title: 'Routing | Next.js Starter',
+          description: 'Next.js handles routing automatically and is easy to extend.',
+          openGraph: {
+            url: 'https://nextjs-starter.now.sh/examples/routing',
+            title: 'Routing | Next.js Starter',
+            description: 'Next.js handles routing automatically and is easy to extend.',
+          }
+        }}/>
         <h1 className="display-2">Routing</h1>
         <p className="lead">
           Next.js handles routing automatically and is easy to extend.

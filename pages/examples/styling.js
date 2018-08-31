@@ -1,12 +1,22 @@
 import SyntaxHighlighter from 'react-syntax-highlighter/prism'
 import { atomDark as SyntaxHighlighterTheme } from 'react-syntax-highlighter/styles/prism'
+import NextSeo from 'next-seo'
 import Page from '../../components/page'
 import Layout from '../../components/layout'
 
 export default class extends Page {
   render() {
     return (
-      <Layout {...this.props} title="Layout and Styling">
+      <Layout {...this.props}>
+        <NextSeo config={{
+          title: 'Styling | Next.js Starter',
+          description: 'Next.js Starter leverages Bootstrap 4.0, Reactstrap, Ionicons and SASS.',
+          openGraph: {
+            url: 'https://nextjs-starter.now.sh/examples/styling',
+            title: 'Styling | Next.js Starter',
+            description: 'Next.js Starter leverages Bootstrap 4.0, Reactstrap, Ionicons and SASS.',
+          }
+        }}/>
         <h1 className="display-2">Styling</h1>
         <h2>Live Reloading</h2>
         <p>

@@ -1,6 +1,7 @@
 /* global window */
 import React from 'react'
 import { Row, Col, Nav, NavItem, NavLink } from 'reactstrap'
+import NextSeo from 'next-seo'
 import Page from '../../components/page'
 import Layout from '../../components/layout'
 import AsyncData from '../../components/async-data'
@@ -37,8 +38,8 @@ export default class extends Page {
   // This allows us to render the page on the client without delaying rendering,
   // then load the data fetched via an async call in when we have it.
   async componentDidMount() {
-    // Only render posts client side if they are not populate (if the page was 
-    // rendered on the server, the state will be inherited from the server 
+    // Only render posts client side if they are not populate (if the page was
+    // rendered on the server, the state will be inherited from the server
     // render by the client)
     if (this.state.posts === null) {
       try {
@@ -57,6 +58,15 @@ export default class extends Page {
   render() {
     return (
       <Layout {...this.props}>
+        <NextSeo config={{
+          title: 'Async Data | Next.js Starter',
+          description: 'Example of how to fetch and load data asynchronously so that pages load quickly and with without blocking rendering when possible, but in a way that still works in browsers that do not support JavaScript.',
+          openGraph: {
+            url: 'https://nextjs-starter.now.sh/examples/async',
+            title: 'Async Data | Next.js Starter',
+            description: 'Example of how to fetch and load data asynchronously so that pages load quickly and with without blocking rendering when possible, but in a way that still works in browsers that do not support JavaScript.',
+          }
+        }}/>
         <h1 className="display-2">Async Data</h1>
         <p>
           This page is an example of how to fetch and load data asynchronously

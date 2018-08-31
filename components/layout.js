@@ -9,7 +9,7 @@ import Signin from './signin'
 import { NextAuth } from 'next-auth/client'
 import Cookies from 'universal-cookie'
 import Package from '../package'
-import Styles from '../css/index.scss'
+
 
 export default class extends React.Component {
 
@@ -23,7 +23,7 @@ export default class extends React.Component {
       signinBtn: React.PropTypes.boolean
     }
   }
-  
+
   constructor(props) {
     super(props)
     this.state = {
@@ -33,7 +33,7 @@ export default class extends React.Component {
     }
     this.toggleModal = this.toggleModal.bind(this)
   }
-  
+
   async toggleModal(e) {
     if (e) e.preventDefault()
 
@@ -48,17 +48,10 @@ export default class extends React.Component {
       modal: !this.state.modal
     })
   }
-  
+
   render() {
     return (
       <React.Fragment>
-        <Head>
-          <meta charSet="UTF-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1"/>
-          <title>{this.props.title || 'Next.js Starter Project'}</title>
-          <style dangerouslySetInnerHTML={{__html: Styles}}/>
-          <script src="https://cdn.polyfill.io/v2/polyfill.min.js"/>
-        </Head>
         <Navbar light className="navbar navbar-expand-md pt-3 pb-3">
           <Link prefetch href="/">
             <NavbarBrand href="/">
@@ -172,7 +165,7 @@ export class UserMenu extends React.Component {
 
    async handleSignoutSubmit(event) {
      event.preventDefault()
-     
+
      // Save current URL so user is redirected back here after signing out
      const cookies = new Cookies()
      cookies.set('redirect_url', window.location.pathname, { path: '/' })
@@ -180,7 +173,7 @@ export class UserMenu extends React.Component {
      await NextAuth.signout()
      Router.push('/')
    }
-   
+
   render() {
     if (this.props.session && this.props.session.user) {
       // If signed in display user dropdown menu
@@ -254,7 +247,7 @@ export class AdminMenuItem extends React.Component {
 export class SigninModal extends React.Component {
   render() {
     if (this.props.providers === null) return null
-    
+
     return (
       <Modal isOpen={this.props.modal} toggle={this.props.toggleModal} style={{maxWidth: 700}}>
         <ModalHeader>Sign up / Sign in</ModalHeader>

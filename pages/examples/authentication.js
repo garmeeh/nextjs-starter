@@ -1,5 +1,6 @@
 import SyntaxHighlighter from 'react-syntax-highlighter/prism'
 import { atomDark as SyntaxHighlighterTheme } from 'react-syntax-highlighter/styles/prism'
+import NextSeo from 'next-seo'
 import Page from '../../components/page'
 import Layout from '../../components/layout'
 
@@ -7,6 +8,15 @@ export default class extends Page {
   render() {
     return (
       <Layout {...this.props}>
+        <NextSeo config={{
+          title: 'Authentication | Next.js Starter',
+          description: 'Next.js Starter\'s authentication is powered by NextAuth. The NextAuth library uses Express and Passport.',
+          openGraph: {
+            url: 'https://nextjs-starter.now.sh/examples/authentication',
+            title: 'Authentication | Next.js Starter',
+            description: 'Next.js Starter\'s authentication is powered by NextAuth. The NextAuth library uses Express and Passport.',
+          }
+        }}/>
         <h1 className="display-2">Authentication</h1>
         <p className="lead">
           Authentication in this project is handled by the <a href="https://www.npmjs.com/package/next-auth">NextAuth</a> library.
@@ -100,14 +110,14 @@ EMAIL_PASSWORD=`}
             <p>
               It includes configuration examples for Facebook, Google and Twitter
               oAuth, which can easily be copied and replicated to add support
-              for signing in other oAuth providers. For tips on configuring 
+              for signing in other oAuth providers. For tips on configuring
               oAuth see <a href="https://github.com/iaincollins/nextjs-starter/blob/master/AUTHENTICATION.md">AUTHENTICATION.md</a>
             </p>
           </li>
         </ul>
         <h2>Using NextAuth in Pages</h2>
         <p>
-          Pages in this project extend from the <span className="font-weight-bold">Page</span> component 
+          Pages in this project extend from the <span className="font-weight-bold">Page</span> component
           in <a href="https://github.com/iaincollins/nextjs-starter/blob/master/components/page.js">components/page.js</a>.
         </p>
         <p>
@@ -135,7 +145,7 @@ export default class extends React.Component {
           from Express Session by parsing the <span className="font-weight-bold">req</span> object.
         </p>
         <p>
-          If a user is signed in <span className="font-weight-bold">this.session.user</span> will contain 
+          If a user is signed in <span className="font-weight-bold">this.session.user</span> will contain
           a user object. If they are not logged in, it will not be set.
         </p>
         <p>
